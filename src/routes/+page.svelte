@@ -271,9 +271,29 @@
 		<div class="hero-body-grid anim-fade-up" style="animation-delay: 0.4s">
 			<!-- Tagline & Description -->
 			<div class="hero-left-desc">
-				<p class="hero-tagline">
-					Backend Engineer &ensp;·&ensp; AI SaaS Developer &ensp;·&ensp; Web Developer
-				</p>
+				<div class="hero-mid-row">
+					<p class="hero-tagline">
+						Backend Engineer &ensp;·&ensp; AI SaaS Developer &ensp;·&ensp; Web Developer
+					</p>
+					<div class="hero-badges">
+						<a 
+							href="https://www.credly.com/users/mirzasuhail" 
+							target="_blank" 
+							rel="noopener noreferrer" 
+							class="hero-badge-btn"
+						>
+							Credly Profile &ensp;↗
+						</a>
+						<a 
+							href="https://www.skills.google/public_profiles/547a5a16-6206-47be-bc8c-e59557f6ad56" 
+							target="_blank" 
+							rel="noopener noreferrer" 
+							class="hero-badge-btn"
+						>
+							Google Skills Profile &ensp;↗
+						</a>
+					</div>
+				</div>
 				<p class="hero-desc">
 					Focusing on engineering intelligent backend pipelines, designing robust system architectures, and crafting digital experiences with an editorial, unique approach.
 				</p>
@@ -458,25 +478,7 @@
 				{/each}
 			</div>
 
-			<!-- Public Badges and Profiles Row -->
-			<div class="profile-links-badges">
-				<a 
-					href="https://www.credly.com/users/mirzasuhail" 
-					target="_blank" 
-					rel="noopener noreferrer" 
-					class="badge-link-btn"
-				>
-					Credly Profile &ensp;↗
-				</a>
-				<a 
-					href="https://www.skills.google/public_profiles/547a5a16-6206-47be-bc8c-e59557f6ad56" 
-					target="_blank" 
-					rel="noopener noreferrer" 
-					class="badge-link-btn"
-				>
-					Google Skills Profile &ensp;↗
-				</a>
-			</div>
+			<!-- Public Badges and Profiles Row (Moved to Hero Section) -->
 		</div>
 
 		<!-- Experience Section -->
@@ -694,7 +696,45 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.8rem;
-		max-width: 750px;
+		max-width: 1100px;
+		width: 100%;
+	}
+
+	.hero-mid-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		gap: 2rem;
+	}
+
+	.hero-badges {
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	.hero-badge-btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.8rem 1.8rem;
+		border: 1px solid var(--border);
+		border-radius: 100px;
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		transition: background-color 0.3s, color 0.3s, transform 0.3s;
+		color: var(--text);
+		white-space: nowrap;
+		cursor: pointer;
+	}
+
+	.hero-badge-btn:hover {
+		background: var(--text);
+		color: var(--bg);
+		transform: translateY(-2px);
+		opacity: 1;
 	}
 
 	.hero-tagline {
@@ -1174,33 +1214,7 @@
 		transform: translateX(4px);
 	}
 
-	.profile-links-badges {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.5rem;
-		margin-top: 1rem;
-	}
-
-	.badge-link-btn {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.8rem 1.8rem;
-		border: 1px solid var(--border);
-		border-radius: 100px;
-		font-size: 0.85rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		transition: background-color 0.3s, color 0.3s, transform 0.3s;
-		color: var(--text);
-	}
-
-	.badge-link-btn:hover {
-		background: var(--text);
-		color: var(--bg);
-		transform: translateY(-2px);
-		opacity: 1;
-	}
+	/* Profile link badges moved to Hero Section */
 
 	/* Experience Section Detail blocks */
 	.experience-block {
@@ -1537,7 +1551,44 @@
 		}
 
 		.hero-left-desc {
+			display: flex;
+			flex-direction: column;
 			max-width: 100%;
+		}
+
+		.hero-mid-row {
+			display: contents;
+		}
+
+		.hero-tagline {
+			order: 1;
+		}
+
+		.hero-desc {
+			order: 2;
+			margin-top: 0.5rem;
+		}
+
+		.hero-badges {
+			order: 3;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.8rem;
+			width: 100%;
+			margin-top: 1.5rem;
+		}
+
+		.hero-badge-btn {
+			justify-content: center;
+		}
+
+		.hero-badges .hero-badge-btn:nth-child(1) {
+			width: 50%;
+		}
+
+		.hero-badges .hero-badge-btn:nth-child(2) {
+			width: 75%;
 		}
 
 		.hero-footer {
