@@ -147,6 +147,16 @@
 	let theme = $state('dark');
 	let showScrollTop = $state(false);
 	let activeModalImage = $state(null);
+	let isMobile = $state(false);
+	let heroPoster = $derived(isMobile ? '/videos/HeroMobile.png' : '/videos/HeroLap.png');
+
+	$effect(() => {
+		const mql = window.matchMedia('(max-width: 768px)');
+		isMobile = mql.matches;
+		const listener = (e) => isMobile = e.matches;
+		mql.addEventListener('change', listener);
+		return () => mql.removeEventListener('change', listener);
+	});
 
 	// Sync theme state with layout/localStorage (defaults to dark on load)
 	$effect(() => {
@@ -243,6 +253,7 @@
 	<video
 		class="hero-video"
 		src="/videos/Hero.mp4"
+		poster={heroPoster}
 		autoplay
 		loop
 		muted
